@@ -2,19 +2,17 @@ import { describe, expect, test } from "bun:test"
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/578/
 function containsDuplicate(nums: number[]): boolean {
-  let duplicateFound = false
   const mapped: Record<number, true> = {}
 
   for (const n of nums) {
     if (mapped[n]) {
-      duplicateFound = true
-      break
+      return true
     }
 
     mapped[n] = true
   }
 
-  return duplicateFound
+  return false
 };
 
 describe("arrays: containsDuplicate", () => {
