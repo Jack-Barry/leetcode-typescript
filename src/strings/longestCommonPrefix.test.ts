@@ -2,25 +2,18 @@ import { describe, expect, test } from 'bun:test'
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-easy/127/strings/887/
 function longestCommonPrefix(strs: string[]): string {
-  let i = 0
+  strs.sort()
   let prefix = ""
-  let maxLengthReached = false
 
-  while (!maxLengthReached) {
-    const currentLetter = strs[0][i]
+  const firstStr = strs[0]
+  const lastStr = strs[strs.length - 1]
 
-    for (const s of strs) {
-      const stringLetter = s[i]
-      if (typeof stringLetter === 'undefined' || stringLetter !== currentLetter) {
-        maxLengthReached = true
-      }
+  for (let i = 0; i < Math.min(firstStr.length, lastStr.length); i++) {
+    if (firstStr[i] !== lastStr[i]) {
+      return prefix
     }
 
-    if (!maxLengthReached) {
-      prefix += currentLetter
-    }
-
-    i++
+    prefix += firstStr[i]
   }
 
   return prefix
