@@ -18,3 +18,12 @@ bun test
 ```
 
 More info on `bun test` can be found [here](https://bun.sh/docs/cli/test).
+
+To scaffold a new challenge problem:
+
+```bash
+bun run scripts/newChallenge.ts <CHALLENGE_TYPE> <CHALLENGE_NAME>
+```
+
+- Replace `<CHALLENGE_TYPE>` with a dir name from `src`, e.g. `arrays` or `strings`
+- Replace `<CHALLENGE_NAME>` with a camelCased name for the challenge, e.g. `containsDuplicate`
